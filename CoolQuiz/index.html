@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz of Champions</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="parent">
+    <div class="child"></div>
+  </div>
+    
+  <!--<div id="animate-area"></div>
+    <div id="quiz"></div>
+    <button id="submit">Submit Quiz</button>
+    <div id="results"></div>-->
+<div>
+    <script>
+        (function(){
+  function buildQuiz(){
+    // variable to store the HTML output
+    const output = [];
+
+    // for each question...
+    myQuestions.forEach(
+      (currentQuestion, questionNumber) => {
+
+        // variable to store the list of possible answers
+        const answers = [];
+
+        // and for each available answer...
+        for(letter in currentQuestion.answers){
+
+          // ...add an HTML radio button
+          answers.push(
+            `<label>
+              <input type="radio" name="question${questionNumber}" value="${letter}">
+              ${letter} :
+              ${currentQuestion.answers[letter]}
+            </label>`
+          );
+        }
+
+        // add this question and its answers to the output
+        output.push(
+          `<div class="question"> ${currentQuestion.question} </div>
+          <div class="answers"> ${answers.join('')} </div>`
+        );
+      }
+    );
+
+    // finally combine our output list into one string of HTML and put it on the page
+    quizContainer.innerHTML = output.join('');
+  }
+
+  function showResults(){
+
+    // gather answer containers from our quiz
+    const answerContainers = quizContainer.querySelectorAll('.answers');
+
+    // keep track of user's answers
+    let numCorrect = 0;
+
+    // for each question...
+    myQuestions.forEach( (currentQuestion, questionNumber) => {
+
+      // find selected answer
+      const answerContainer = answerContainers[questionNumber];
+      const selector = `input[name=question${questionNumber}]:checked`;
+      const userAnswer = (answerContainer.querySelector(selector) || {}).value;
+
+      // if answer is correct
+      if(userAnswer === currentQuestion.correctAnswer){
+        // add to the number of correct answers
+        numCorrect++;
+
+        // color the answers green
+        answerContainers[questionNumber].style.color = 'lightgreen';
+      }
+      // if answer is wrong or blank
+      else{
+        // color the answers red
+        answerContainers[questionNumber].style.color = 'red';
+      }
+    });
+
+    // show number of correct answers out of total
+    resultsContainer.innerHTML = `${numCorrect} out of ${myQuestions.length}`;
+  }
+
+  const quizContainer = document.getElementById('quiz');
+  const resultsContainer = document.getElementById('results');
+  const submitButton = document.getElementById('submit');
+  const myQuestions = [
+            {
+                question: "What is 42?",
+                    answers: {
+                        a: "Donkey Kong",
+                        b: "Frederick Engels",
+                        c: "Is Sword/Shield good?"
+                    },
+                    correctAnswer: "c"
+            },
+        {
+                question: "Bob Ross * 2?",
+                    answers: {
+                        a: "*3",
+                        b: "Papyrus D&D Mini",
+                        c: "Xochitl Tortilla Chips",
+                        d: "All of the above"
+                    },
+                    correctAnswer: "c"
+            },
+        {
+                question: "Trampoline?",
+                    answers: {
+                        a: "Yes",
+                        b: "Big Boi",
+                        c: "Quantum Mechanics"
+                    },
+    correctAnswer: "c"
+  }
+];
+
+    
+  // Kick things off
+  buildQuiz();
+
+  // Event listeners
+  submitButton.addEventListener('click', showResults);
+})();
+    </script>
+    </div>
+    
+</body>
+</html>

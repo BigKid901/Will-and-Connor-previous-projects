@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script type="text/javascript">
+
+       var score = 0; 
+       var answer1 = prompt("Does Kronk shift?", "Y/N");
+
+       if (answer1 == "Y") {
+           document.write("Correct\n");
+           score += 7;
+       } else {
+            document.write("Incorrect\n");
+       }
+
+       var answer2 = prompt("Is Wingdings the best font?", "Y/N");
+
+       if (answer2 == "Y") {
+           document.write("Correct\n");
+           score += 7;
+       } else {
+            document.write("Incorrect\n");
+       }
+
+       var answer3 = prompt("Trampoline?", "Yes, No, or Big Boi");
+
+       if (answer3 == "Y" || answer3 == "Big Boi") {
+           document.write("Correct, I guess\n");
+           score += 7;
+       } else if ("Quantum Mechanics") {
+            document.write("You have truly ascended!!!!!!!!!!\n");
+            score += 55;
+       } else {
+            document.write("Incorrect\n");
+       }
+
+       document.write(score);
+
+    </script>
+
+</body>
+</html>

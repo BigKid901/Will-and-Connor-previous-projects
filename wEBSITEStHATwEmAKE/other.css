@@ -1,0 +1,32 @@
+img {
+    width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    border: 10px solid black;
+    border-radius: 1000px;
+}
+
+h1 {
+    color: #ff33ff;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+body {
+    background-color: #802000;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+h2 {
+    color: #00e600;
+    text-align: center;
+}
+
+h3 {
+    color: #0080ff;
+    text-align: center;
+}

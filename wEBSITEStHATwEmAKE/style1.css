@@ -1,0 +1,23 @@
+h1 {
+    color: #fbff00;
+    font-family: Wingdings, 'Zapf Dingbats', sans-serif;
+   
+
+}
+
+ul {
+    text-align: center;
+    font-family: Wingdings, 'Zapf Dingbats', sans-serif;
+    color: white;
+}
+
+body {
+    background-color: #4d1300;
+    font-family: Wingdings, 'Zapf Dingbats', sans-serif;
+}
+
+img {
+    border: 6px solid plum;
+    size: 500px;
+    
+}
